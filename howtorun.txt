@@ -1,0 +1,14 @@
+Split into two terminals one for the backend and one for the frontend
+
+Backend:
+1. source venv/bin/activate
+2. cd backend
+3. pip install flask flask_cors werkzeug
+4. python3 backend.py
+Now is running on: http://localhost:5001
+
+Frontend:
+1. cd frontend
+2. npm install 
+3. npm install bootstrap
+3. npm run dev
