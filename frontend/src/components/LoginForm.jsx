@@ -25,7 +25,7 @@ const LoginForm = ({ onAuth }) => {
       const data = await response.json();
   
       if (data.token) {
-        onAuth(data.token, data.username);  // ✅ This now works as expected
+        onAuth(data.token, data.username);  
       } else {
         alert(data.error || 'Authentication failed');
       }

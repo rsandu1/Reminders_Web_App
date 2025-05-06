@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reminders-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reminders-frontend
+  template:
+    metadata:
+      labels:
+        app: reminders-frontend
+    spec:
+      containers:
+      - name: reminders-frontend
+        image: gcr.io/tough-bearing-436823-p4/reminders-frontend
+        ports:
+        - containerPort: 80
