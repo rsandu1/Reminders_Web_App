@@ -1,0 +1,15 @@
+1. gcloud auth login
+2. gcloud config set project (your-project-id)
+3. gcloud services enable containerregistry.googleapis.com
+4. gcloud services enable artifactregistry.googleapis.com
+5. gcloud auth configure-docker
+6. gcloud components install gke-gcloud-auth-plugin
+7. cd frontend
+8. docker build -t gcr.io/$PROJECT_ID/reminders-frontend .
+9. docker push gcr.io/$PROJECT_ID/reminders-frontend
+10. gcloud container clusters create reminders-cluster --num-nodes=1 --zone=us-central1-a
+11. gcloud container clusters get-credentials reminders-cluster --zone=us-central1-a
+
+
+
+
