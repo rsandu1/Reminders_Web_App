@@ -9,6 +9,12 @@
 9. docker push gcr.io/$PROJECT_ID/reminders-frontend
 10. gcloud container clusters create reminders-cluster --num-nodes=1 --zone=us-central1-a
 11. gcloud container clusters get-credentials reminders-cluster --zone=us-central1-a
+12. cd ..
+13. kubectl apply -f frontend-deployment.yaml
+14. kubectl apply -f frontend-service.yaml
+15. kubectl get service reminders-frontend-service
+WAIT 2 minutes
+
 
 
 
