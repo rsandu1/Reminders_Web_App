@@ -28,15 +28,18 @@ function App() {
       setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
     };
 
-  // ✅ Fetch todos from the backend
+  // ✅ Fetch todos from the backend and sort them by due date
   const fetchTodos = async () => {
     try {
       const response = await fetch(`${API_BASE}/api/items`, {
         headers: { Authorization: token },
       });
       const data = await response.json();
+  
       if (response.ok) {
-        setTodos(data);
+        // Sort todos by due_date (earliest first)
+        const sorted = data.sort((a, b) => new Date(a.due_date) - new Date(b.due_date));
+        setTodos(sorted);
       } else {
         console.warn('Unauthorized fetchTodos()', data);
       }
@@ -44,6 +47,7 @@ function App() {
       console.error('Failed to fetch todos:', error);
     }
   };
+  
 
   // ✅ Fetch todos when token is available
   useEffect(() => {
