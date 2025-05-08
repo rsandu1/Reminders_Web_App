@@ -15,6 +15,18 @@ function App() {
   const [username, setUsername] = useState('');
   const [loginInfo, setLoginInfo] = useState({ username: '', password: '' });
   const [isLogin, setIsLogin] = useState(true);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+    // ✅ Apply theme class to body
+    useEffect(() => {
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+      localStorage.setItem('theme', theme);
+    }, [theme]);
+  
+    const toggleTheme = () => {
+      setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    };
 
   // ✅ Fetch todos from the backend
   const fetchTodos = async () => {
@@ -109,7 +121,10 @@ function App() {
       <div className="header-left">
         <span className="logo">🗂️ Reminders</span>
       </div>
-      <div className="header-right">
+      <div className="header-right d-flex align-items-center gap-3">
+          <button className="btn btn-outline-secondary" onClick={toggleTheme}>
+            {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+          </button>
         <div className="dropdown">
           <button
           className="btn btn-light dropdown-toggle account-icon"
