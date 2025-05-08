@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: reminders-frontend
-        image: gcr.io/tough-bearing-436823-p4/reminders-frontend
+        image: gcr.io/cloud-computing-454820/reminders-frontend
         ports:
         - containerPort: 80

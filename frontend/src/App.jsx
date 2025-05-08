@@ -3,7 +3,9 @@ import LoginForm from './components/LoginForm';
 import TodoTable from './components/TodoTable';
 import './styles.css';
 
-const API_BASE = 'http://104.198.172.91:5001';
+// const API_BASE = 'http://34.70.223.84:5001';
+const API_BASE = import.meta.env.VITE_API_URL;
+
 
 function App() {
   const [todos, setTodos] = useState([]);
